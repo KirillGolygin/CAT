@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack serve --open",
-    "build": "webpack --config webpack.config.js --mode production"
+    "build": "webpack --config webpack.config.js --mode production",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "react": "^18.2.0",
