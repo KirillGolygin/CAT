@@ -1,0 +1,8 @@
+{
+  "name": "cat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KirillGolygin/CAT.git",
+  "author": "Kirill Golygin <k.golygin.dev@gmail.com>",
+  "license": "MIT"
+}
