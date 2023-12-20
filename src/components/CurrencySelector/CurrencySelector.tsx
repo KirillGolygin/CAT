@@ -1,17 +1,40 @@
+import { FC } from 'react';
+
+import CurrencyStore from 'src/store/currency-store';
+
 import './CurrencySelector.style.scss';
 
-const CurrencySelector = () => {
+interface CurrencySelectorProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
+  const { currencies, pickedCurrency, pickCurrency } = CurrencyStore();
+  const pickCur = (id: string) => {
+    pickCurrency(id);
+    setIsOpen(false);
+  };
+  const toggleSelector = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="selector">
-      <div className="selector-btn">
-        <p className="text">RUB</p>
+      <div className="selector-btn" onClick={(e) => toggleSelector(e)}>
+        <p className="text">{pickedCurrency?.id}</p>
         <img className="pic" src="/SVG/selector-arrow.svg" alt="arrow" />
       </div>
-      <div className="selector-content">
-        <div className="selector-item">RUB</div>
-        <div className="selector-item">USD</div>
-        <div className="selector-item">USD</div>
-      </div>
+      {isOpen && (
+        <div className="selector-content">
+          {currencies.map((cur) => (
+            <div key={cur.id} className="selector-item" onClick={() => pickCur(cur.id)}>
+              {cur.id}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
