@@ -1,0 +1,44 @@
+.selector {
+    width: 181px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 300;
+
+    .selector-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #DAD6D6;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+    }
+
+    .selector-btn-active {
+        box-shadow: none;
+    }
+
+    .selector-content {
+        max-height: 178px;
+        overflow: auto;
+        margin-top: 6px;
+        border: 1px solid #DAD6D6;
+        background: #FFF;
+
+        .selector-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #DAD6D6;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #F0EFEF;
+            }
+
+            &:last-of-type {
+                border: none;
+            }
+        }
+    }
+
+}
