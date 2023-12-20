@@ -8,7 +8,7 @@ import Logo from './components/Logo/Logo';
 import './App.scss';
 
 const App = () => {
-  const getCurrencies = CurrencyStore((state) => state.getCurrencies);
+  const { getCurrencies, pickedCurrency } = CurrencyStore();
   const [isSelectorOpen, setIsSelectorOpen] = useState<boolean>(false);
   const closeSelector = () => {
     setIsSelectorOpen(false);
@@ -18,10 +18,20 @@ const App = () => {
   }, [getCurrencies]);
 
   return (
-    <div className="container" onClick={closeSelector}>
-      <Logo />
-      <CurrencySelector isOpen={isSelectorOpen} setIsOpen={setIsSelectorOpen} />
-    </div>
+    <section className="container" onClick={closeSelector}>
+      <div className="main-container">
+        <div className="logo-container">
+          <Logo />
+          <CurrencySelector isOpen={isSelectorOpen} setIsOpen={setIsSelectorOpen} />
+        </div>
+        <div className="pic-container">
+          <img src="/Kitten.png" />
+        </div>
+      </div>
+      <div className="currency-name-container">
+        <p className="currency-name">{pickedCurrency?.name}</p>
+      </div>
+    </section>
   );
 };
 

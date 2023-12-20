@@ -25,7 +25,7 @@ const CurrencyStore = create<ICurrencyStore>()(
         const response = await fetch('https://api.coinbase.com/v2/currencies');
         if (!response.ok) throw new Error('Ошибка в получении данных, попробуйте снова');
         const data = await response.json();
-        set({ currencies: data.data });
+        set({ currencies: data.data, pickedCurrency: data.data[0] });
       } catch (error) {
         if (error instanceof Error) {
           set({ errorMessage: error.message });

@@ -3,6 +3,7 @@
     color: #000;
     font-size: 18px;
     font-weight: 300;
+    position: relative;
 
     .selector-btn {
         display: flex;
@@ -21,10 +22,13 @@
 
     .selector-content {
         max-height: 178px;
+        width: 181px;
         overflow: auto;
-        margin-top: 6px;
         border: 1px solid #DAD6D6;
         background: #FFF;
+        position: absolute;
+        top: 51px;
+        left: 0;
 
         .selector-item {
             padding: 10px 15px;
