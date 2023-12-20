@@ -8,7 +8,7 @@ import Logo from './components/Logo/Logo';
 import './App.scss';
 
 const App = () => {
-  const { getCurrencies, pickedCurrency } = CurrencyStore();
+  const { getCurrencies, pickedCurrency, errorMessage } = CurrencyStore();
   const [isSelectorOpen, setIsSelectorOpen] = useState<boolean>(false);
   const closeSelector = () => {
     setIsSelectorOpen(false);
@@ -29,7 +29,7 @@ const App = () => {
         </div>
       </div>
       <div className="currency-name-container">
-        <p className="currency-name">{pickedCurrency?.name}</p>
+        <p className="currency-name"> {errorMessage ? errorMessage : pickedCurrency?.name}</p>
       </div>
     </section>
   );
