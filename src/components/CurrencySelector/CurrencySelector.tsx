@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import CurrencyStore from 'src/store/currency-store';
 
+import cn from 'classnames';
 import './CurrencySelector.style.scss';
 
 interface CurrencySelectorProps {
@@ -22,7 +23,9 @@ const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
 
   return (
     <div className="selector">
-      <div className="selector-btn" onClick={(e) => toggleSelector(e)}>
+      <div
+        className={cn('selector-btn', { 'selector-btn-active': isOpen })}
+        onClick={(e) => toggleSelector(e)}>
         <p className="text">{pickedCurrency?.id}</p>
         <img className="pic" src="/SVG/selector-arrow.svg" alt="arrow" />
       </div>
