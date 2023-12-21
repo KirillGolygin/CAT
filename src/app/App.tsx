@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import CurrencyStore from './store/currency-store';
+import CurrencyStore from '../store/currency-store';
 
-import CurrencySelector from './components/CurrencySelector/CurrencySelector';
-import Logo from './components/Logo/Logo';
+import CurrencySelector from '../components/CurrencySelector/CurrencySelector';
+import Logo from '../components/Logo/Logo';
 
-import './App.scss';
+import './styles/App.scss';
 
 const App = () => {
   const { getCurrencies, pickedCurrency, errorMessage } = CurrencyStore();

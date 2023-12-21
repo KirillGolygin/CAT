@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.tsx',
+  entry: './src/app/main.tsx',
   mode: 'development',
   output: {
     filename: 'bundle.[fullhash].js',
@@ -19,7 +19,7 @@ module.exports = {
   ],
   resolve: {
     modules: [__dirname, 'src', 'node_modules'],
-    extensions: ['*', '.js', '.jsx', '.tsx', '.ts']
+    extensions: ['.*', '.js', '.jsx', '.tsx', '.ts']
   },
   module: {
     rules: [

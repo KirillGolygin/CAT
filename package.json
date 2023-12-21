@@ -51,7 +51,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,tsx,jsx,html,css,scss}": [
+    "src/**/*.{ts,js,tsx,jsx,html}": [
       "prettier --write",
       "yarn lint"
     ]
