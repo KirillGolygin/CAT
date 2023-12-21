@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
+import { fetchCurrencies } from '../api/coinbase/fetchCurrencies';
+
 import type { ICurrency } from '../types';
 
 interface ICurrencyStore {
@@ -19,13 +21,13 @@ const CurrencyStore = create<ICurrencyStore>()(
     errorMessage: null,
     pickedCurrency: null,
     getCurrencies: async () => {
-      set({ loading: true });
+      set({ loading: true, errorMessage: null });
 
       try {
-        const response = await fetch('https://api.coinbase.com/v2/currencies');
-        if (!response.ok) throw new Error('Ошибка в получении данных, попробуйте снова');
-        const data = await response.json();
-        set({ currencies: data.data, pickedCurrency: data.data[0] });
+        const response = await fetchCurrencies;
+        if (response.status !== 200) throw new Error();
+        const data = response.data.data;
+        set({ currencies: data, pickedCurrency: data[0] });
       } catch (error) {
         if (error instanceof Error) {
           set({ errorMessage: error.message });
