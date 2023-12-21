@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import CurrencyStore from 'src/store/currency-store';
+import CurrencyStore from 'src/shared/store/currency-store';
 
 import cn from 'classnames';
 import './CurrencySelector.style.scss';
@@ -10,7 +10,7 @@ interface CurrencySelectorProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
+export const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
   const { currencies, pickedCurrency, pickCurrency } = CurrencyStore();
   const pickCur = (id: string) => {
     pickCurrency(id);
@@ -25,7 +25,8 @@ const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
     <div className="selector">
       <div
         className={cn('selector-btn', { 'selector-btn-active': isOpen })}
-        onClick={(e) => toggleSelector(e)}>
+        onClick={(e) => toggleSelector(e)}
+      >
         <p className="text">{pickedCurrency?.id}</p>
         <img className="pic" src="/SVG/selector-arrow.svg" alt="arrow" />
       </div>
@@ -41,5 +42,3 @@ const CurrencySelector: FC<CurrencySelectorProps> = ({ isOpen, setIsOpen }) => {
     </div>
   );
 };
-
-export default CurrencySelector;

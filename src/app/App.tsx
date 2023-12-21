@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import CurrencyStore from '../store/currency-store';
+import CurrencyStore from 'src/shared/store/currency-store';
 
-import CurrencySelector from '../components/CurrencySelector/CurrencySelector';
-import Logo from '../components/Logo/Logo';
+import { CurrencySelector, Logo } from 'src/shared/components';
 
 import './styles/App.scss';
 

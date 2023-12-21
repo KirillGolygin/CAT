@@ -1,6 +1,8 @@
+import type { FC } from 'react';
+
 import './Logo.style.scss';
 
-const Logo = () => {
+export const Logo: FC = () => {
   return (
     <div className="logo">
       <h1 className="title">CAT</h1>
@@ -10,5 +12,3 @@ const Logo = () => {
     </div>
   );
 };
-
-export default Logo;
