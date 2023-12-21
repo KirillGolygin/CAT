@@ -29,6 +29,8 @@
     }
 
     .currency-name-container {
+        display: flex;
+        justify-content: center;
         margin-top: 21px;
         padding: 43px;
         background: #000;

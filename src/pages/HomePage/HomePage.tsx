@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ClipLoader } from 'react-spinners';
 
 import CurrencyStore from 'src/shared/store/currency-store';
 
@@ -7,7 +8,8 @@ import { Logo, Selector } from 'src/shared/components';
 import './HomePage.style.scss';
 
 const HomePage = () => {
-  const { getCurrencies, pickedCurrency, errorMessage, currencies, pickCurrency } = CurrencyStore();
+  const { getCurrencies, pickedCurrency, errorMessage, currencies, pickCurrency, loading } =
+    CurrencyStore();
   const [isSelectorOpen, setIsSelectorOpen] = useState<boolean>(false);
 
   const closeSelector = () => {
@@ -42,6 +44,7 @@ const HomePage = () => {
       </div>
       <div className="currency-name-container">
         <p className="currency-name"> {errorMessage ? errorMessage : pickedCurrency?.name}</p>
+        <ClipLoader className="loader" color="#fff" size={50} loading={loading} />
       </div>
     </section>
   );
