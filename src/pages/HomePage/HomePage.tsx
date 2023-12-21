@@ -4,7 +4,7 @@ import CurrencyStore from 'src/shared/store/currency-store';
 
 import { Logo, Selector } from 'src/shared/components';
 
-import './HomePage.scss';
+import './HomePage.style.scss';
 
 const HomePage = () => {
   const { getCurrencies, pickedCurrency, errorMessage, currencies, pickCurrency } = CurrencyStore();
