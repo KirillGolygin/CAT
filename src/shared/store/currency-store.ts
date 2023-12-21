@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import type ICurrency from 'src/interfaces/Icurrency';
+import type { ICurrency } from '../types';
 
 interface ICurrencyStore {
   currencies: ICurrency[];
