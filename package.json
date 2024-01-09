@@ -57,7 +57,7 @@
   "lint-staged": {
     "src/**/*.{ts,js,tsx,jsx,css,scss,html}": [
       "yarn lint",
-      "yarn prettier --write"
+      "yarn prettier --write ."
     ]
   }
 }
