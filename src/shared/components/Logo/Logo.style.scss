@@ -1,0 +1,22 @@
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    color: var(--main-text-color);
+    text-shadow: var(--main-shadow);
+
+    .title {
+        font-size: 96px;
+        font-weight: 400;
+    }
+
+    .transcript-container {
+        max-width: 87px;
+
+        .transcript-text {
+            font-size: 20px;
+            font-weight: 300;
+            margin-left: 10px;
+        }
+    }
+}
